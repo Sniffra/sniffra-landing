@@ -13,7 +13,7 @@ Come back later to add your name to a mailing list.
 Updates and Issues:
 
 *5/17/2025*
-- The Sniffra Project is created
+- The Sniffra Project is created! Whoohoo!
 
 *5/18/2025*
 - Unfortunately, as of our humble GitHub Pages site has been flagged as “High-Risk” by the university network, meaning we cant show anyone on campus our website. Whoops!  
