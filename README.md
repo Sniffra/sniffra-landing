@@ -1,5 +1,5 @@
 # 🚧 Welcome to Sniffra.com 🚧  
-### An independent project from Computer science students at Central Washington University
+### An independent project from Computer Science students at Central Washington University
 
 Site’s still under construction
 If you’re seeing this, congrats — you’re on the ground floor of something that might just become very cool.
