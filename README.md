@@ -9,13 +9,3 @@ Come back later to add your name to a mailing list.
 — *Sniffra Project*
 
 🔗 [Check out our GitHub repo](https://github.com/Sniffra)
-
----
-
-## Updates and Issues:
-
-**5/17/2025**  
-- The Sniffra Project is created! Whoohoo!
-
-**5/18/2025**  
-- Unfortunately, our humble GitHub Pages site has been flagged as “High-Risk” by the university network, meaning we can't show anyone on campus our website. Whoops!
