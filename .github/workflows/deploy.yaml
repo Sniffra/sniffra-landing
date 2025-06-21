@@ -5,40 +5,32 @@ on:
     branches:
       - main # Or master, or whichever branch you push to
 
-# Explicitly grant the GITHUB_TOKEN permissions to write to the repository
-permissions:
-  contents: write
-
 jobs:
   build_and_deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
 
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3 # Checks out your repository code
 
       - name: Setup Flutter SDK 🐦
         uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
+          channel: 'stable' # Or 'beta', 'dev', 'master'
+          # Optional: Specify Flutter version
+          # flutter-version: '3.16.0'
 
       - name: Install Dependencies 📦
         run: flutter pub get
 
+      # IMPORTANT: Build for GitHub Project Page URL (username.github.io/repository_name/)
+      # The base-href MUST match your repository name, surrounded by slashes.
       - name: Build Web App 🏗️
         run: flutter build web --release --base-href /
-
-      # === THE CRITICAL FIX IS HERE ===
-      # This step copies the index.html to 404.html to handle SPA routing.
-      - name: Add .nojekyll to disable Jekyll
-        run: touch build/web/.nojekyll
-
-      - name: Copy index.html to 404.html
-        run: cp build/web/index.html build/web/404.html
 
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: build/web # The folder the action should deploy.
+          folder: build/web # The folder the action should deploy. Must match Flutter web output dir.
           clean: true # Automatically remove deleted files from the deploy branch
