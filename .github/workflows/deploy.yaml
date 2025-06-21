@@ -22,7 +22,7 @@ jobs:
         run: flutter pub get
 
       - name: Build Flutter Web
-        run: flutter build web --release --base-href /sniffra-landing/
+        run: flutter build web --release --base-href /
 
       # This deploys the built site to GitHub Pages
       - name: Deploy to GitHub Pages
