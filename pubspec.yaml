@@ -26,4 +26,4 @@ flutter:
 
   assets:
   - assets/images/
-  - documents/  
+  - assets/documents/  
