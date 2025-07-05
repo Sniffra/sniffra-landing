@@ -265,7 +265,7 @@ class TeamMemberCard extends StatelessWidget {
             FaIcon(FontAwesomeIcons.gamepad, color: Colors.white),
             SizedBox(width: 10),
             Text(
-              "Favorite Hobbies and Games",
+              "Favorites:",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 22,

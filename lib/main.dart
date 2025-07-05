@@ -6,7 +6,8 @@ import 'package:myapp/pages/get_sniffra_page.dart';
 import 'package:myapp/pages/home_page.dart';
 import 'package:myapp/pages/whitepaper_page.dart';
 import 'package:myapp/theme/colors.dart';
-import 'package:myapp/widgets/navbar.dart';
+// CHANGE 1: You now need to import the MobileDrawer, which is in navbar.dart
+import 'package:myapp/widgets/navbar.dart'; 
 
 void main() {
   runApp(const MyApp());
@@ -26,16 +27,22 @@ final _router = GoRouter(
     ShellRoute(
       navigatorKey: _shellNavigatorKey,
       builder: (context, state, child) {
+        // --- THIS IS THE SECTION TO CHANGE ---
         return Scaffold(
-          body: Column(
-            children: [
-              const NavBar(),
-              // The area for the page content
-              Expanded(
-                child: child,
-              ),
-            ],
+          // CHANGE 2: Move the NavBar to the appBar property.
+          // The appBar expects a PreferredSizeWidget, so we wrap our NavBar.
+          // This is the standard way to create custom app bars.
+          appBar: const PreferredSize(
+            preferredSize: Size.fromHeight(100.0), // Adjust height as needed
+            child: NavBar(),
           ),
+
+          // CHANGE 3: Add the MobileDrawer to the endDrawer property.
+          // This is what the hamburger icon's onPressed function looks for.
+          endDrawer: const MobileDrawer(),
+
+          // The body is now just the page content itself.
+          body: child,
         );
       },
       routes: [

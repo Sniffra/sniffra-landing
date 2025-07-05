@@ -8,7 +8,7 @@ class ForumPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: Text(
-        "Our Latest Blog Posts",
+        "Forum Coming Soon!",
         style: TextStyle(fontSize: 32, color: AppColors.primaryDark),
       ),
     );
