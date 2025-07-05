@@ -9,6 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  font_awesome_flutter: ^10.4.0 # For awesome icons like GitHub, LinkedIn
+  url_launcher: ^6.1.11         # To open links in a browser
+  flip_card: ^0.7.0 #
   
   go_router: ^13.2.0
   cupertino_icons: ^1.0.8

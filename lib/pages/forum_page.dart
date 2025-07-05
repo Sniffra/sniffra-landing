@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 
-class BlogPage extends StatelessWidget {
-  const BlogPage({super.key});
+class ForumPage extends StatelessWidget {
+  const ForumPage({super.key});
 
   @override
   Widget build(BuildContext context) {

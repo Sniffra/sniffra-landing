@@ -29,7 +29,7 @@ class NavBar extends StatelessWidget {
             children: [
               _NavLink(title: 'Home', route: '/home'),
               _NavLink(title: 'Get Sniffra', route: '/get-sniffra'),
-              _NavLink(title: 'Blog', route: '/blog'),
+              _NavLink(title: 'Forum', route: '/forum'),
               _NavLink(title: 'About Us', route: '/about'),
               _NavLink(title: 'Whitepaper', route: '/whitepaper'),
             ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myapp/pages/about_us_page.dart';
-import 'package:myapp/pages/blog_page.dart';
+import 'package:myapp/pages/forum_page.dart';
 import 'package:myapp/pages/get_sniffra_page.dart';
 import 'package:myapp/pages/home_page.dart';
 import 'package:myapp/pages/whitepaper_page.dart';
@@ -48,8 +48,8 @@ final _router = GoRouter(
           builder: (context, state) => const GetSniffraPage(),
         ),
         GoRoute(
-          path: '/blog',
-          builder: (context, state) => const BlogPage(),
+          path: '/forum',
+          builder: (context, state) => const ForumPage(),
         ),
         GoRoute(
           path: '/about',
