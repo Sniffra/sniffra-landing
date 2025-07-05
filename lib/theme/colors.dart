@@ -8,6 +8,6 @@ class AppColors {
   static const Color accentBlue1 = Color.fromARGB(255, 8, 83, 246);
   static const Color accentBlue2 = Color(0xFF0AC4FD);
   static const Color primaryLight = Color.fromARGB(255, 159, 173, 235);
-  static const Color lightText = Color(0xFFFCFCFC);
+  static const Color lightText = Color.fromARGB(255, 175, 186, 236);
   
 }
