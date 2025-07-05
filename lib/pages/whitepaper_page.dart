@@ -1,7 +1,7 @@
 // lib/pages/whitepaper_page.dart
 
 import 'package:flutter/material.dart';
-import 'dart:ui_web'; // FIX 1: Import the new web-specific UI library
+import 'dart:ui_web';
 import 'dart:html';
 import '../theme/colors.dart';
 
@@ -27,7 +27,6 @@ class _WhitepaperPageState extends State<WhitepaperPage> {
       ..style.height = '100%'
       ..src = pdfUrl;
 
-    // FIX 2: Call platformViewRegistry directly without the 'ui.' prefix.
     platformViewRegistry.registerViewFactory(
       'iframe-pdf-viewer',
       (int viewId) => _iFrameElement,
@@ -36,9 +35,11 @@ class _WhitepaperPageState extends State<WhitepaperPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.primaryLight,
-      body: Padding(
+    // FIX: Removed the Scaffold. The root widget is now a Container.
+    return Container(
+      // We moved the background color here from the old Scaffold.
+      color: AppColors.primaryLight,
+      child: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
