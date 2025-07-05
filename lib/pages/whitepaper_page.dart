@@ -1,8 +1,8 @@
 // lib/pages/whitepaper_page.dart
 
-import 'dart:html'; // Important for using IFrameElement
-import 'dart:ui' as ui; // Important for platform view registration
 import 'package:flutter/material.dart';
+import 'dart:ui_web'; // FIX 1: Import the new web-specific UI library
+import 'dart:html';
 import '../theme/colors.dart';
 
 class WhitepaperPage extends StatefulWidget {
@@ -19,22 +19,17 @@ class _WhitepaperPageState extends State<WhitepaperPage> {
   void initState() {
     super.initState();
 
-    // The path to your PDF file in the 'assets' bundle.
-    // Flutter Web serves assets from a path that starts with 'assets/'.
-    final pdfUrl = 'assets/documents/SniffraWhitepaper.pdf';
+    final pdfUrl = 'assets/documents/sniffra_whitepaper.pdf';
 
-    // Set up the IFrame properties
     _iFrameElement
-      ..style.border = 'none' // Remove the default border
+      ..style.border = 'none'
       ..style.width = '100%'
       ..style.height = '100%'
       ..src = pdfUrl;
 
-    // This is the magic that registers the IFrameElement as a view
-    // that Flutter can render. We give it a unique name.
-    // ignore: undefined_prefixed_name
-    ui.platformViewRegistry.registerViewFactory(
-      'iframe-pdf-viewer', // A unique ID for the view
+    // FIX 2: Call platformViewRegistry directly without the 'ui.' prefix.
+    platformViewRegistry.registerViewFactory(
+      'iframe-pdf-viewer',
       (int viewId) => _iFrameElement,
     );
   }
@@ -42,13 +37,12 @@ class _WhitepaperPageState extends State<WhitepaperPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryLight, // A light background for the page
+      backgroundColor: AppColors.primaryLight,
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // 1. Page Title
             const Text(
               "Sniffra Whitepaper",
               style: TextStyle(
@@ -58,8 +52,6 @@ class _WhitepaperPageState extends State<WhitepaperPage> {
               ),
             ),
             const SizedBox(height: 16),
-
-            // 2. Sub-text or download link (optional but good practice)
             Text(
               "The official document outlining the vision, technology, and roadmap for the Sniffra project.",
               textAlign: TextAlign.center,
@@ -69,8 +61,6 @@ class _WhitepaperPageState extends State<WhitepaperPage> {
               ),
             ),
             const SizedBox(height: 24),
-
-            // 3. The PDF Viewer
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
@@ -84,7 +74,6 @@ class _WhitepaperPageState extends State<WhitepaperPage> {
                     ),
                   ],
                 ),
-                // This widget displays the IFrame we registered in initState.
                 child: const HtmlElementView(
                   viewType: 'iframe-pdf-viewer',
                 ),
