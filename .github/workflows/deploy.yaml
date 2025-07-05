@@ -16,6 +16,9 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
+      - name: List Files in Workspace
+        run: ls -R
+
       - name: Setup Flutter SDK 🐦
         uses: subosito/flutter-action@v2
         with:
