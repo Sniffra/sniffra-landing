@@ -34,7 +34,7 @@ jobs:
         run: flutter pub get
 
       - name: Build Web App 🏗️
-        run: flutter build web --release --base-href /
+        run: flutter build web --release --base-href /${{ github.event.repository.name }}/
 
       - name: Add .nojekyll to disable Jekyll
         run: touch build/web/.nojekyll
