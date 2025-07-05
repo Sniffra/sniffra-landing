@@ -16,6 +16,7 @@ dependencies:
   go_router: ^13.2.0
   cupertino_icons: ^1.0.8
   web: ^0.5.1
+  syncfusion_flutter_pdfviewer: ^25.2.5  
 
 dev_dependencies:
   flutter_test:

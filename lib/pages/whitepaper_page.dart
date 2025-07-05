@@ -1,82 +1,54 @@
 // lib/pages/whitepaper_page.dart
 
 import 'package:flutter/material.dart';
-import 'dart:ui_web';
-import 'dart:html';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart'; // The only import we need!
 import '../theme/colors.dart';
 
-class WhitepaperPage extends StatefulWidget {
+class WhitepaperPage extends StatelessWidget {
   const WhitepaperPage({super.key});
 
   @override
-  State<WhitepaperPage> createState() => _WhitepaperPageState();
-}
-
-class _WhitepaperPageState extends State<WhitepaperPage> {
-  final IFrameElement _iFrameElement = IFrameElement();
-
-  @override
-  void initState() {
-    super.initState();
-
-    final pdfUrl = 'assets/documents/sniffra_whitepaper.pdf';
-
-    _iFrameElement
-      ..style.border = 'none'
-      ..style.width = '100%'
-      ..style.height = '100%'
-      ..src = pdfUrl;
-
-    platformViewRegistry.registerViewFactory(
-      'iframe-pdf-viewer',
-      (int viewId) => _iFrameElement,
-    );
-  }
-
-  @override
   Widget build(BuildContext context) {
-    // FIX: Removed the Scaffold. The root widget is now a Container.
+    // The path to your PDF asset.
+    const String pdfAssetPath = 'assets/documents/sniffra_whitepaper.pdf';
+
     return Container(
-      // We moved the background color here from the old Scaffold.
-      color: AppColors.primaryLight,
+      // The page's background color.
+      color: AppColors.primaryDark.withOpacity(0.05),
       child: Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 48.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // 1. Page Title
             const Text(
               "Sniffra Whitepaper",
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 48,
                 fontWeight: FontWeight.bold,
                 color: AppColors.primaryDark,
               ),
             ),
-            const SizedBox(height: 16),
-            Text(
-              "The official document outlining the vision, technology, and roadmap for the Sniffra project.",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 18,
-                color: AppColors.primaryDark.withOpacity(0.8),
-              ),
-            ),
             const SizedBox(height: 24),
+
+            // 2. The PDF Viewer Widget - This is the magic.
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey.shade400),
-                  borderRadius: BorderRadius.circular(8),
-                  boxShadow: [
+                  border: Border.all(color: Colors.grey.shade300),
+                  boxShadow: const [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
+                      color: Colors.black12,
                       blurRadius: 10,
-                      offset: const Offset(0, 4),
-                    ),
+                      offset: Offset(0, 5),
+                    )
                   ],
                 ),
-                child: const HtmlElementView(
-                  viewType: 'iframe-pdf-viewer',
+                // This single widget does everything!
+                child: SfPdfViewer.asset(
+                  pdfAssetPath,
+                  // Optional: You can customize the scroll direction if you want
+                  // pageLayoutMode: PdfPageLayoutMode.single, 
                 ),
               ),
             ),
