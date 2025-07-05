@@ -21,7 +21,7 @@ class NavBar extends StatelessWidget {
   }
 }
 
-// The desktop version with the "file tab" look. (Largely your existing code)
+// The desktop version with the "file tab" look
 class _DesktopNavBar extends StatelessWidget {
   const _DesktopNavBar();
 
@@ -42,7 +42,7 @@ class _DesktopNavBar extends StatelessWidget {
                 child: InkWell(
                   onTap: () => context.go('/home'),
                   child: Image.asset(
-                    'images/logo_crop.png',
+                    'assets/images/logo_crop.png',
                     height: 40,
                     errorBuilder: (context, error, stackTrace) {
                       return const Text('Sniffra',
@@ -98,7 +98,7 @@ class _MobileNavBar extends StatelessWidget {
           // Logo
           InkWell(
             onTap: () => context.go('/home'),
-            child: Image.asset('images/logo_crop.png', height: 35),
+            child: Image.asset('assets/images/logo_crop.png', height: 35),
           ),
           // Hamburger Menu Icon
           IconButton(
@@ -132,7 +132,7 @@ class MobileDrawer extends StatelessWidget {
               border: Border(bottom: BorderSide(color: AppColors.primaryBlue)),
             ),
             child: Center(
-              child: Image.asset('images/logo_crop.png', height: 50),
+              child: Image.asset('assets/images/logo_crop.png', height: 50),
             ),
           ),
           // Navigation Links

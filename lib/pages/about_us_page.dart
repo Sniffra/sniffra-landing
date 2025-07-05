@@ -75,7 +75,7 @@ class AboutUsPage extends StatelessWidget {
                       role: "Co-Founder",
                       bio:
                           "Alex Boyce is the visionary behind Sniffra, passionate about solving modern problems utilizing today's resources.",
-                      imageUrl: "images/alexheadshot.jpg",
+                      imageUrl: "assets/images/alexheadshot.jpg",
                       githubUrl: "https://github.com/nood-leog",
                       linkedinUrl: "https://www.linkedin.com/in/nood-leog/",
                       favoriteGames: const [
